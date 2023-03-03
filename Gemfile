@@ -8,6 +8,9 @@ ruby '3.2.0'
 # CSS framework for the project.
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
+# Custom form builder to simplify Rails forms creation process.
+gem 'simple_form', '~> 5.2'
+
 # Lint ERB files, "ERB Linter" VSCode extension is required.
 gem 'erb_lint', require: false
 

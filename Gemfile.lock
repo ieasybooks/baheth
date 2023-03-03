@@ -241,6 +241,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.2.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     smart_properties (1.17.0)
     solargraph (0.48.0)
       backport (~> 1.2)
@@ -317,6 +320,7 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   selenium-webdriver
+  simple_form (~> 5.2)
   solargraph
   sprockets-rails
   stimulus-rails
