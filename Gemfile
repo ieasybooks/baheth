@@ -11,6 +11,9 @@ gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 # Custom form builder to simplify Rails forms creation process.
 gem 'simple_form', '~> 5.2'
 
+# Flexible authentication solution for Rails based on Warden.
+gem 'devise', '~> 4.9'
+
 # Lint ERB files, "ERB Linter" VSCode extension is required.
 gem 'erb_lint', require: false
 
