@@ -8,11 +8,20 @@ ruby '3.2.0'
 # CSS framework for the project.
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
+# Lint ERB files, "ERB Linter" VSCode extension is required.
+gem 'erb_lint', require: false
+
 # Format, analyze, and fix code formatting issues.
 gem 'rubocop', require: false
 
 # RuboCop extension specified for Rails projects.
 gem 'rubocop-rails', require: false
+
+# IDE tools for code completion, inline documentation, and static analysis.
+gem 'solargraph', require: false
+
+# Help to kill N+1 queries and unused eager loading.
+gem 'bullet', group: 'development'
 
 # Default Rails gems:
 
