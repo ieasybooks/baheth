@@ -14,6 +14,9 @@ gem 'simple_form', '~> 5.2'
 # Flexible authentication solution for Rails based on Warden.
 gem 'devise', '~> 4.9'
 
+# Translate Devise messages/views into Arabic.
+gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
+
 # Lint ERB files, "ERB Linter" VSCode extension is required.
 gem 'erb_lint', require: false
 
