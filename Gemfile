@@ -17,6 +17,9 @@ gem 'devise', '~> 4.9'
 # Translate Devise messages/views into Arabic.
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 
+# Authorization solution for Rails.
+gem 'cancancan', '~> 3.4'
+
 # Lint ERB files, "ERB Linter" VSCode extension is required.
 gem 'erb_lint', require: false
 
