@@ -1,6 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  user: one
+first_speaker:
+  name: الشيخ إبراهيم رفيق الطويل
+  description: الشيخ إبراهيم رفيق الطويل
+  user: first_user
+
+second_speaker:
+  name: الشيخ صالح بن عبد الله العصيمي
+  description: الشيخ صالح بن عبد الله العصيمي
+  user: first_user

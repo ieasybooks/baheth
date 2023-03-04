@@ -5,8 +5,11 @@ module Admin
     include Devise::Test::IntegrationHelpers
 
     setup do
-      sign_in users(:one)
-      @playlist = playlists(:one)
+      sign_in users(:first_user)
+
+      @playlist = playlists(:first_playlist)
+      @speaker_one = speakers(:first_speaker)
+      @speaker_two = speakers(:second_speaker)
     end
 
     test 'should get index' do
@@ -21,7 +24,13 @@ module Admin
 
     test 'should create playlist' do
       assert_difference('Playlist.count') do
-        post admin_playlists_url, params: { playlist: { description: @playlist.description, title: @playlist.title } }
+        post admin_playlists_url, params: {
+          playlist: {
+            title: @playlist.title,
+            description: @playlist.description,
+            speaker_ids: [@speaker_one.id]
+          }
+        }
       end
 
       assert_redirected_to admin_playlist_url(Playlist.last)
@@ -38,8 +47,14 @@ module Admin
     end
 
     test 'should update playlist' do
-      patch admin_playlist_url(@playlist),
-            params: { playlist: { description: @playlist.description, title: @playlist.title } }
+      patch admin_playlist_url(@playlist), params: {
+        playlist: {
+          title: @playlist.title,
+          description: @playlist.description,
+          speaker_ids: [@speaker_two.id]
+        }
+      }
+
       assert_redirected_to admin_playlist_url(@playlist)
     end
 

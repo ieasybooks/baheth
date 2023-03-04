@@ -5,8 +5,9 @@ module Admin
     include Devise::Test::IntegrationHelpers
 
     setup do
-      sign_in users(:one)
-      @speaker = speakers(:one)
+      sign_in users(:first_user)
+
+      @speaker = speakers(:first_speaker)
     end
 
     test 'should get index' do
@@ -21,8 +22,12 @@ module Admin
 
     test 'should create speaker' do
       assert_difference('Speaker.count') do
-        post admin_speakers_url,
-             params: { speaker: { description: @speaker.description, name: @speaker.name } }
+        post admin_speakers_url, params: {
+          speaker: {
+            name: @speaker.name,
+            description: @speaker.description
+          }
+        }
       end
 
       assert_redirected_to admin_speaker_url(Speaker.last)
@@ -39,8 +44,13 @@ module Admin
     end
 
     test 'should update speaker' do
-      patch admin_speaker_url(@speaker),
-            params: { speaker: { description: @speaker.description, name: @speaker.name } }
+      patch admin_speaker_url(@speaker), params: {
+        speaker: {
+          name: @speaker.name,
+          description: @speaker.description
+        }
+      }
+
       assert_redirected_to admin_speaker_url(@speaker)
     end
 

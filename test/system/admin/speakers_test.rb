@@ -5,8 +5,9 @@ module Admin
     include Devise::Test::IntegrationHelpers
 
     setup do
-      sign_in users(:one)
-      @speaker = speakers(:one)
+      sign_in users(:first_user)
+
+      @speaker = speakers(:first_speaker)
     end
 
     test 'visiting the index' do

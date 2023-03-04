@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-  user: one
+first_playlist:
+  title: شرح العقيدة الطحاوية
+  description: شرح العقيدة الطحاوية
+  user: first_user

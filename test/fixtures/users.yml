@@ -2,7 +2,7 @@
 
 <% require 'bcrypt' %>
 
-one:
+first_user:
   first_name: 'علي'
   last_name: 'فاضل'
   email: 'ali.fadel@ieasybooks.com'

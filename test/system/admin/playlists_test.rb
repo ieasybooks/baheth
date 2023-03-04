@@ -5,8 +5,10 @@ module Admin
     include Devise::Test::IntegrationHelpers
 
     setup do
-      sign_in users(:one)
-      @playlist = playlists(:one)
+      sign_in users(:first_user)
+
+      @playlist = playlists(:first_playlist)
+      @speaker = speakers(:first_speaker)
     end
 
     test 'visiting the index' do
@@ -18,27 +20,33 @@ module Admin
       visit admin_playlists_url
       click_on 'New playlist'
 
-      fill_in 'Description', with: @playlist.description
       fill_in 'Title', with: @playlist.title
+      fill_in 'Description', with: @playlist.description
+      within '#playlist_speaker_ids' do
+        find("option[value='#{@speaker.id}']").click
+      end
       click_on 'Create Playlist'
 
       assert_text 'Playlist was successfully created'
       click_on 'Back'
     end
 
-    test 'should update Playlist' do
+    test 'should update playlist' do
       visit admin_playlist_url(@playlist)
       click_on 'Edit this playlist', match: :first
 
-      fill_in 'Description', with: @playlist.description
       fill_in 'Title', with: @playlist.title
+      fill_in 'Description', with: @playlist.description
+      within '#playlist_speaker_ids' do
+        find("option[value='#{@speaker.id}']").click
+      end
       click_on 'Update Playlist'
 
       assert_text 'Playlist was successfully updated'
       click_on 'Back'
     end
 
-    test 'should destroy Playlist' do
+    test 'should destroy playlist' do
       visit admin_playlist_url(@playlist)
       click_on 'Destroy this playlist', match: :first
 
