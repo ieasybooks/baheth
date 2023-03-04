@@ -1,1 +1,1 @@
-json.partial! 'admin_speakers/speaker', speaker: @speaker
+json.partial! 'speaker', speaker: @speaker
