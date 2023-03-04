@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
   <head>
-    <title>Baheth</title>
+    <title>باحث</title>
+
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,6 +18,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div class="alert alert-<%= name == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show mb-4" role="alert">
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
