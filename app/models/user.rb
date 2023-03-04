@@ -4,4 +4,6 @@ class User < ApplicationRecord
   # Removed: :recoverable, :registerable
   # Added: :trackable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
+
+  has_many :speakers, dependent: :destroy
 end
