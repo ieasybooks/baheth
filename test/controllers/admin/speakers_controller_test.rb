@@ -22,8 +22,10 @@ module Admin
     test 'should create speaker' do
       assert_difference('Speaker.count') do
         post admin_speakers_url,
-             params: { speaker: { description: @speaker.description, name: @speaker.name, user_id: @speaker.user_id } }
+             params: { speaker: { description: @speaker.description, name: @speaker.name } }
       end
+
+      assert Speaker.last.user == users(:one)
 
       assert_redirected_to admin_speaker_url(Speaker.last)
     end
@@ -40,7 +42,7 @@ module Admin
 
     test 'should update speaker' do
       patch admin_speaker_url(@speaker),
-            params: { speaker: { description: @speaker.description, name: @speaker.name, user_id: @speaker.user_id } }
+            params: { speaker: { description: @speaker.description, name: @speaker.name } }
       assert_redirected_to admin_speaker_url(@speaker)
     end
 

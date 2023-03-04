@@ -20,9 +20,6 @@ module Admin
 
       fill_in 'Description', with: @speaker.description
       fill_in 'Name', with: @speaker.name
-      within '#speaker_user_id' do
-        find("option[value='#{@speaker.user_id}']").click
-      end
       click_on 'Create Speaker'
 
       assert_text 'Speaker was successfully created'
@@ -35,9 +32,6 @@ module Admin
 
       fill_in 'Description', with: @speaker.description
       fill_in 'Name', with: @speaker.name
-      within '#speaker_user_id' do
-        find("option[value='#{@speaker.user_id}']").click
-      end
       click_on 'Update Speaker'
 
       assert_text 'Speaker was successfully updated'

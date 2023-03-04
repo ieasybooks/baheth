@@ -1,26 +1,22 @@
 module Admin
   class SpeakersController < AdminController
-    before_action :set_speaker, only: %i[show edit update destroy]
+    load_and_authorize_resource
 
     # GET /admin/speakers or /admin/speakers.json
-    def index
-      @speakers = Speaker.all
-    end
+    def index; end
 
     # GET /admin/speakers/1 or /admin/speakers/1.json
     def show; end
 
     # GET /admin/speakers/new
-    def new
-      @speaker = Speaker.new
-    end
+    def new; end
 
     # GET /admin/speakers/1/edit
     def edit; end
 
     # POST /admin/speakers or /admin/speakers.json
     def create
-      @speaker = Speaker.new(speaker_params)
+      @speaker.user = current_user
 
       respond_to do |format|
         if @speaker.save
@@ -58,14 +54,9 @@ module Admin
 
     private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_speaker
-      @speaker = Speaker.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def speaker_params
-      params.require(:speaker).permit(:name, :description, :user_id)
+      params.require(:speaker).permit(:name, :description)
     end
   end
 end
