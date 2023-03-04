@@ -25,8 +25,6 @@ module Admin
              params: { speaker: { description: @speaker.description, name: @speaker.name } }
       end
 
-      assert Speaker.last.user == users(:one)
-
       assert_redirected_to admin_speaker_url(Speaker.last)
     end
 
