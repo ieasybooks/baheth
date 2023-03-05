@@ -22,9 +22,7 @@ module Admin
 
       fill_in 'Title', with: @playlist.title
       fill_in 'Description', with: @playlist.description
-      within '#playlist_speaker_ids' do
-        find("option[value='#{@speaker.id}']").click
-      end
+      select @speaker.name, from: 'playlist_speaker_ids'
       click_on 'Create Playlist'
 
       assert_text 'Playlist was successfully created'
@@ -37,9 +35,7 @@ module Admin
 
       fill_in 'Title', with: @playlist.title
       fill_in 'Description', with: @playlist.description
-      within '#playlist_speaker_ids' do
-        find("option[value='#{@speaker.id}']").click
-      end
+      select @speaker.name, from: 'playlist_speaker_ids'
       click_on 'Update Playlist'
 
       assert_text 'Playlist was successfully updated'

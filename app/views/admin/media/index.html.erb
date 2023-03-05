@@ -1,0 +1,12 @@
+<h1>Media</h1>
+
+<div id="media">
+  <% @media.each do |medium| %>
+    <%= render medium %>
+    <p>
+      <%= link_to "Show this medium", admin_medium_path(medium) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New medium", new_admin_medium_path %>

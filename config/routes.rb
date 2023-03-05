@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :speakers
     resources :playlists
+    resources :media
   end
 end

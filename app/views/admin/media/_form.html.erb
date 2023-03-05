@@ -1,0 +1,16 @@
+<%= simple_form_for(@medium, url: @medium.persisted? ? admin_medium_path : admin_media_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :duration, as: :integer %>
+    <%= f.input :link %>
+    <%= f.association :playlist %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

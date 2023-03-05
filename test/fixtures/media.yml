@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_medium:
+  title: الدرس الأول
+  description: الدرس الأول
+  duration: "5775"
+  link: https://youtu.be/JiPwakcRO9M
+  playlist: first_playlist
+  user: first_user
