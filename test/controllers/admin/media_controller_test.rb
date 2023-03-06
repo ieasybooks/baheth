@@ -8,7 +8,6 @@ module Admin
       sign_in users(:first_user)
 
       @medium = media(:first_medium)
-      @playlist = playlists(:first_playlist)
     end
 
     test 'should get index' do
@@ -29,7 +28,8 @@ module Admin
             description: @medium.description,
             duration: @medium.duration,
             link: @medium.link,
-            playlist_id: @playlist.id
+            transcript: fixture_file_upload('transcript.txt', 'text/plain'),
+            playlist_id: @medium.playlist_id
           }
         }
       end
@@ -54,7 +54,8 @@ module Admin
           description: @medium.description,
           duration: @medium.duration,
           link: @medium.link,
-          playlist_id: @playlist.id
+          transcript: fixture_file_upload('transcript.txt', 'text/plain'),
+          playlist_id: @medium.playlist_id
         }
       }
 

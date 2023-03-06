@@ -1,0 +1,4 @@
+first_transcript_attachment:
+  name: "transcript"
+  record: first_medium (Medium)
+  blob: first_transcript_blob
