@@ -62,7 +62,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def medium_params
-      params.require(:medium).permit(:title, :description, :duration, :link, :playlist_id)
+      params.require(:medium).permit(:title, :description, :duration, :link, :transcript, :playlist_id)
     end
   end
 end

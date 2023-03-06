@@ -7,6 +7,7 @@
     <%= f.input :description %>
     <%= f.input :duration, as: :integer %>
     <%= f.input :link %>
+    <%= f.input :transcript, as: :file, input_html: { accept: 'text/plain' } %>
     <%= f.association :playlist %>
   </div>
 

@@ -20,6 +20,11 @@
   </p>
 
   <p>
+    <strong>Transcript:</strong>
+    <%= link_to medium.transcript.filename, rails_blob_path(medium.transcript, disposition: 'preview') %>
+  </p>
+
+  <p>
     <strong>Playlist:</strong>
     <%= medium.playlist_id %>
   </p>
