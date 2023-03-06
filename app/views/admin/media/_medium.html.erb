@@ -20,6 +20,21 @@
   </p>
 
   <p>
+    <strong>Source:</strong>
+    <%= medium.source %>
+  </p>
+
+  <p>
+    <strong>Producer:</strong>
+    <%= medium.producer %>
+  </p>
+
+  <p>
+    <strong>Provider:</strong>
+    <%= medium.provider %>
+  </p>
+
+  <p>
     <strong>Transcript:</strong>
     <%= link_to medium.transcript.filename, rails_blob_path(medium.transcript, disposition: 'preview') %>
   </p>

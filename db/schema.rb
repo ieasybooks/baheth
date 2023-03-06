@@ -59,6 +59,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_160010) do
     t.text "description"
     t.interval "duration"
     t.string "link"
+    t.integer "source", default: 0, null: false
+    t.integer "producer", default: 0, null: false
+    t.string "provider"
     t.bigint "playlist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

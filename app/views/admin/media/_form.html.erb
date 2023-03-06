@@ -7,6 +7,9 @@
     <%= f.input :description %>
     <%= f.input :duration, as: :integer %>
     <%= f.input :link %>
+    <%= f.input :source, collection: Medium::SOURCES, include_blank: false %>
+    <%= f.input :producer, collection: Medium::PRODUCERS, include_blank: false %>
+    <%= f.input :provider %>
     <%= f.input :transcript, as: :file, input_html: { accept: 'text/plain' } %>
     <%= f.association :playlist %>
   </div>
