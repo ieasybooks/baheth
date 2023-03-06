@@ -3,4 +3,6 @@
 first_playlist:
   title: شرح العقيدة الطحاوية
   description: شرح العقيدة الطحاوية
+  speakers:
+    - first_speaker
   user: first_user

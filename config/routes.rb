@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :speakers
     resources :playlists
     resources :media
+    resources :cues
   end
 end

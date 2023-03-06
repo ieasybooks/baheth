@@ -8,7 +8,6 @@ module Admin
       sign_in users(:first_user)
 
       @playlist = playlists(:first_playlist)
-      @speaker = speakers(:first_speaker)
     end
 
     test 'visiting the index' do
@@ -22,7 +21,7 @@ module Admin
 
       fill_in 'Title', with: @playlist.title
       fill_in 'Description', with: @playlist.description
-      select @speaker.name, from: 'playlist_speaker_ids'
+      select @playlist.speakers.first.name, from: 'playlist_speaker_ids'
       click_on 'Create Playlist'
 
       assert_text 'Playlist was successfully created'
@@ -35,7 +34,7 @@ module Admin
 
       fill_in 'Title', with: @playlist.title
       fill_in 'Description', with: @playlist.description
-      select @speaker.name, from: 'playlist_speaker_ids'
+      select @playlist.speakers.first.name, from: 'playlist_speaker_ids'
       click_on 'Update Playlist'
 
       assert_text 'Playlist was successfully updated'

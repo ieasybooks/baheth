@@ -2,6 +2,7 @@ class Playlist < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :speakers # rubocop:disable Rails/HasAndBelongsToMany
   has_many :media, dependent: :destroy
+  has_many :cues, through: :media
 
   validates :title, presence: true
 

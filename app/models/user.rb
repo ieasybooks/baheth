@@ -6,4 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   has_many :speakers, dependent: :destroy
+  has_many :playlists, dependent: :destroy
+  has_many :media, dependent: :destroy
+  has_many :cues, dependent: :destroy
+
+  validates :first_name, :last_name, presence: true
 end

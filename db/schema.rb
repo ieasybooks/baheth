@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_143109) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_055749) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cues", force: :cascade do |t|
+    t.text "content"
+    t.interval "start_time"
+    t.interval "end_time"
+    t.bigint "medium_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medium_id"], name: "index_cues_on_medium_id"
+    t.index ["user_id"], name: "index_cues_on_user_id"
+  end
 
   create_table "media", force: :cascade do |t|
     t.string "title"
@@ -71,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_143109) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "cues", "media"
+  add_foreign_key "cues", "users"
   add_foreign_key "media", "playlists"
   add_foreign_key "media", "users"
   add_foreign_key "playlists", "users"

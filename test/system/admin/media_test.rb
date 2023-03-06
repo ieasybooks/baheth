@@ -8,7 +8,6 @@ module Admin
       sign_in users(:first_user)
 
       @medium = media(:first_medium)
-      @playlist = playlists(:first_playlist)
     end
 
     test 'visiting the index' do
@@ -24,7 +23,7 @@ module Admin
       fill_in 'Description', with: @medium.description
       fill_in 'Duration', with: @medium.duration
       fill_in 'Link', with: @medium.link
-      select @playlist.title, from: 'medium_playlist_id'
+      select @medium.playlist.title, from: 'medium_playlist_id'
       click_on 'Create Medium'
 
       assert_text 'Medium was successfully created'
@@ -39,7 +38,7 @@ module Admin
       fill_in 'Description', with: @medium.description
       fill_in 'Duration', with: @medium.duration
       fill_in 'Link', with: @medium.link
-      select @playlist.title, from: 'medium_playlist_id'
+      select @medium.playlist.title, from: 'medium_playlist_id'
       click_on 'Update Medium'
 
       assert_text 'Medium was successfully updated'
