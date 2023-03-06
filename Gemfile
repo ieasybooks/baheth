@@ -29,6 +29,9 @@ gem 'rubocop', require: false
 # RuboCop extension specified for Rails projects.
 gem 'rubocop-rails', require: false
 
+# Code style checking for Capybara test files.
+gem 'rubocop-capybara', require: false
+
 # IDE tools for code completion, inline documentation, and static analysis.
 gem 'solargraph', require: false
 
