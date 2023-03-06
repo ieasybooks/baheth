@@ -5,6 +5,7 @@ class Playlist < ApplicationRecord
   has_many :cues, through: :media
 
   validates :title, presence: true
+  validates :link, url: { allow_blank: true, schemes: ['https'] }
 
   validate :one_speaker_at_least?
 
