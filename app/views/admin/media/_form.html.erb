@@ -11,6 +11,7 @@
     <%= f.input :producer, collection: Medium::PRODUCERS, include_blank: false %>
     <%= f.input :provider %>
     <%= f.input :transcript, as: :file, input_html: { accept: 'text/plain' } %>
+    <%= f.input :tag_list, input_html: { value: f.object.tag_list.join('، ') } %>
     <%= f.input :hidden %>
     <%= f.association :playlist %>
   </div>

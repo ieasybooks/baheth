@@ -6,6 +6,7 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :link %>
+    <%= f.input :tag_list, input_html: { value: f.object.tag_list.join('، ') } %>
     <%= f.input :hidden %>
     <%= f.association :speakers %>
   </div>

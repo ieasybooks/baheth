@@ -20,6 +20,9 @@ gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 # Authorization solution for Rails.
 gem 'cancancan', '~> 3.4'
 
+# Tagging engine for Rails to add tags to models easily.
+gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
+
 # Library for validating urls in Rails.
 gem 'validate_url', '~> 1.0', '>= 1.0.15'
 

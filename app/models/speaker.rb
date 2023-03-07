@@ -5,4 +5,6 @@ class Speaker < ApplicationRecord
   has_many :cues, through: :media
 
   validates :name, presence: true
+
+  acts_as_taggable
 end

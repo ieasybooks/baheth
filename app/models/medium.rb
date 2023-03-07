@@ -13,6 +13,8 @@ class Medium < ApplicationRecord
 
   validate :plain_text_transcript?
 
+  acts_as_taggable
+
   enum :source, SOURCES, prefix: true
   enum :producer, PRODUCERS, prefix: true
 

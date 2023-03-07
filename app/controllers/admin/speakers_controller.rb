@@ -56,7 +56,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def speaker_params
-      params.require(:speaker).permit(:name, :description, :hidden)
+      params.require(:speaker).permit(:name, :description, :tag_list, :hidden)
     end
   end
 end

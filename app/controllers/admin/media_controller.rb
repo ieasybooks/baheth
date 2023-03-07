@@ -64,7 +64,7 @@ module Admin
     def medium_params
       params.require(:medium).permit(
         :title, :description, :duration, :link, :source,
-        :producer, :provider, :hidden, :transcript,
+        :producer, :provider, :transcript, :tag_list, :hidden,
         :playlist_id
       )
     end

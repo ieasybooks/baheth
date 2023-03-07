@@ -9,6 +9,8 @@ class Playlist < ApplicationRecord
 
   validate :one_speaker_at_least?
 
+  acts_as_taggable
+
   def one_speaker_at_least?
     return unless speakers.empty?
 

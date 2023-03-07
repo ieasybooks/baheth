@@ -56,7 +56,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def playlist_params
-      params.require(:playlist).permit(:title, :description, :link, :hidden, speaker_ids: [])
+      params.require(:playlist).permit(:title, :description, :link, :tag_list, :hidden, speaker_ids: [])
     end
   end
 end
