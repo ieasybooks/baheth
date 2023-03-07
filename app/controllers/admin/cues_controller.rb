@@ -63,7 +63,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def cue_params
-      params.require(:cue).permit(:content, :start_time, :end_time, :medium_id)
+      params.require(:cue).permit(:content, :start_time, :end_time, :hidden, :medium_id)
     end
   end
 end

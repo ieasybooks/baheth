@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_160010) do
     t.text "content"
     t.interval "start_time"
     t.interval "end_time"
+    t.boolean "hidden", default: false, null: false
     t.bigint "medium_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -62,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_160010) do
     t.integer "source", default: 0, null: false
     t.integer "producer", default: 0, null: false
     t.string "provider"
+    t.boolean "hidden", default: false, null: false
     t.bigint "playlist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -74,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_160010) do
     t.string "title"
     t.text "description"
     t.string "link"
+    t.boolean "hidden", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_160010) do
   create_table "speakers", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.boolean "hidden", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -4,6 +4,7 @@ class CreatePlaylists < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.string :link
+      t.boolean :hidden, null: false, default: false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
