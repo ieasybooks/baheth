@@ -1,11 +1,16 @@
 module Admin
   class MediaController < AdminController
+    include Pagy::Backend
+
     before_action :sanitize_medium_params, only: %i[create update]
 
     load_and_authorize_resource
+    skip_load_resource only: :index
 
     # GET /admin/media or /admin/media.json
-    def index; end
+    def index
+      @pagy, @media = pagy(Medium.accessible_by(current_ability).order(:id))
+    end
 
     # GET /admin/media/1 or /admin/media/1.json
     def show; end

@@ -1,9 +1,14 @@
 module Admin
   class SpeakersController < AdminController
+    include Pagy::Backend
+
     load_and_authorize_resource
+    skip_load_resource only: :index
 
     # GET /admin/speakers or /admin/speakers.json
-    def index; end
+    def index
+      @pagy, @speakers = pagy(Speaker.accessible_by(current_ability).order(:id))
+    end
 
     # GET /admin/speakers/1 or /admin/speakers/1.json
     def show; end

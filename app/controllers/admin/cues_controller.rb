@@ -1,11 +1,16 @@
 module Admin
   class CuesController < AdminController
+    include Pagy::Backend
+
     before_action :sanitize_cue_params, only: %i[create update]
 
     load_and_authorize_resource
+    skip_load_resource only: :index
 
     # GET /admin/cues or /admin/cues.json
-    def index; end
+    def index
+      @pagy, @cues = pagy(Cue.accessible_by(current_ability).order(:id))
+    end
 
     # GET /admin/cues/1 or /admin/cues/1.json
     def show; end

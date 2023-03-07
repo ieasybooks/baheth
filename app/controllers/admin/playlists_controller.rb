@@ -1,9 +1,14 @@
 module Admin
   class PlaylistsController < AdminController
+    include Pagy::Backend
+
     load_and_authorize_resource
+    skip_load_resource only: :index
 
     # GET /admin/playlists or /admin/playlists.json
-    def index; end
+    def index
+      @pagy, @playlists = pagy(Playlist.accessible_by(current_ability).order(:id))
+    end
 
     # GET /admin/playlists/1 or /admin/playlists/1.json
     def show; end

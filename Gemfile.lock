@@ -179,7 +179,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    oj (3.14.2)
     orm_adapter (0.5.0)
+    pagy (6.0.2)
     parallel (1.22.1)
     parser (3.2.1.0)
       ast (~> 2.4.1)
@@ -343,6 +345,8 @@ DEPENDENCIES
   erb_lint
   importmap-rails
   jbuilder
+  oj (~> 3.14, >= 3.14.2)
+  pagy (~> 6.0, >= 6.0.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.1)

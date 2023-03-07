@@ -20,11 +20,17 @@ gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 # Authorization solution for Rails.
 gem 'cancancan', '~> 3.4'
 
+# Pagination for Rails ActiveRecord (And other Ruby frameworks/code).
+gem 'pagy', '~> 6.0', '>= 6.0.2'
+
 # Tagging engine for Rails to add tags to models easily.
 gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 
 # Library for validating urls in Rails.
 gem 'validate_url', '~> 1.0', '>= 1.0.15'
+
+# The fastest JSON parser and object serializer.
+gem 'oj', '~> 3.14', '>= 3.14.2'
 
 # Lint ERB files, "ERB Linter" VSCode extension is required.
 gem 'erb_lint', require: false
