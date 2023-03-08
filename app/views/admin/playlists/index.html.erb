@@ -1,14 +1,1 @@
-<h1>Playlists</h1>
-
-<div id="playlists">
-  <% @playlists.each do |playlist| %>
-    <%= render playlist %>
-    <p>
-      <%= link_to "Show this playlist", admin_playlist_path(playlist) %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New playlist", new_admin_playlist_path %>
-
-<%= render 'templates/pagy_nav', pagy: @pagy %>
+<%= render 'admin/templates/index', records: @playlists %>

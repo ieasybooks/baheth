@@ -7,4 +7,8 @@ class Cue < ApplicationRecord
   delegate :id, to: :playlist, prefix: true
 
   validates :content, :start_time, :end_time, presence: true
+
+  def truncated_content(content_limit = 25)
+    content.size > content_limit ? "#{content[0..content_limit]}..." : content
+  end
 end

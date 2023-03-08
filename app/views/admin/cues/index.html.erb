@@ -1,14 +1,1 @@
-<h1>Cues</h1>
-
-<div id="cues">
-  <% @cues.each do |cue| %>
-    <%= render cue %>
-    <p>
-      <%= link_to "Show this cue", admin_cue_path(cue) %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New cue", new_admin_cue_path %>
-
-<%= render 'templates/pagy_nav', pagy: @pagy %>
+<%= render 'admin/templates/index', records: @cues %>

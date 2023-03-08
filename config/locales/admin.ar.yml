@@ -1,0 +1,70 @@
+ar:
+  admin:
+    templates:
+      index:
+        speakers:
+          title: المُتحدّثون
+          count: عدد المُتحدّثين
+          attributes:
+            - id
+            - name
+            - tags
+            - appears
+            - created_by
+            - created_at
+            - updated_at
+            - empty
+            - empty
+        playlists:
+          title: قوائم التشغيل
+          count: عدد قوائم التشغيل
+          attributes:
+            - id
+            - title
+            - link
+            - tags
+            - appears
+            - speakers
+            - created_by
+            - created_at
+            - updated_at
+            - empty
+            - empty
+        media:
+          title: الوسائط
+          count: عدد الوسائط
+          attributes:
+            - id
+            - title
+            - duration
+            - link
+            - source
+            - producer
+            - provider
+            - tags
+            - appears
+            - playlist
+            - speakers
+            - created_by
+            - created_at
+            - updated_at
+            - empty
+            - empty
+            - empty
+        cues:
+          title: النصوص
+          count: عدد النصوص
+          attributes:
+            - id
+            - content
+            - start_time
+            - end_time
+            - appears
+            - medium
+            - playlist
+            - speakers
+            - created_by
+            - created_at
+            - updated_at
+            - empty
+            - empty
