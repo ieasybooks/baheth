@@ -3,8 +3,8 @@
   <td><%= link_to record.title, admin_playlist_path(record) %></td>
   <td><%= link_to '<i class="bi bi-box-arrow-up-left"></i>'.html_safe, record.link, class: 'btn btn-outline-primary', target: '_blank' %></td>
   <td><%= record.tag_list %></td>
-  <td><%= speakers_to_links(record.speakers).join(t('joiner')).html_safe %></td>
   <td><%= (record.hidden ? '<i class="bi bi-x-circle-fill text-danger fs-4"></i>' : '<i class="bi bi-check-circle-fill text-success fs-4"></i>').html_safe %></td>
+  <td><%= speakers_to_links(record.speakers).join(t('joiner')).html_safe %></td>
   <td><%= record.user.name %></td>
   <td><%= record.created_at %></td>
   <td><%= record.updated_at %></td>
