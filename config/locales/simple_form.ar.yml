@@ -1,0 +1,15 @@
+ar:
+  simple_form:
+    hints:
+      defaults:
+        tag_list: 'يجب فصل الوسوم بفاصلة عربية كهذه: "،".'
+    prompts:
+      defaults:
+        medium: 'قم باختيار الوسيط'
+        playlist: 'قم باختيار قائمة التشغيل'
+    options:
+      medium:
+        source:
+          youtube: يوتيوب
+        producer:
+          almufaragh: المفرّغ

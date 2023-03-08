@@ -1,14 +1,31 @@
 ar:
   sign_out: تسجيل الخروج
 
+  helpers:
+    submit:
+      speaker:
+        create: إضافة مُتحدّث
+        update: تعديل المُتحدّث
+      playlist:
+        create: إضافة قائمة تشغيل
+        update: تعديل قائمة التشغيل
+      medium:
+        create: إضافة وسيط
+        update: تعديل الوسيط
+      cue:
+        create: إضافة نص
+        update: تعديل النص
+
   attributes:
     appears: ظاهر؟
     content: المحتوى
     created_at: وقت الإضافة
     created_by: المستخدم المُضيف
+    description: الوصف
     duration: المدة
     empty: ''
     end_time: وقت النهاية
+    hidden: مخفي؟
     id: '#'
     link: الرابط
     medium: الوسيط
@@ -19,8 +36,9 @@ ar:
     source: المصدر
     speakers: المُتحدّثون
     start_time: وقت البداية
-    tags: الوسوم
+    tag_list: الوسوم
     title: العنوان
+    transcript: ملف النص
     updated_at: آخر تعديل
 
   admin:
@@ -30,6 +48,11 @@ ar:
         manage_playlists: إدارة قوائم التشغيل
         manage_media: إدارة الوسائط
         manage_cues: إدارة النصوص
+      new:
+        speaker: إضافة مُتحدّث
+        playlist: إضافة قائمة تشغيل
+        medium: إضافة وسيط
+        cue: إضافة نص
       index:
         speakers:
           title: المُتحدّثون
@@ -37,7 +60,7 @@ ar:
           attributes:
             - id
             - name
-            - tags
+            - tag_list
             - appears
             - created_by
             - created_at
@@ -51,7 +74,7 @@ ar:
             - id
             - title
             - link
-            - tags
+            - tag_list
             - appears
             - speakers
             - created_by
@@ -70,7 +93,7 @@ ar:
             - source
             - producer
             - provider
-            - tags
+            - tag_list
             - appears
             - playlist
             - speakers
