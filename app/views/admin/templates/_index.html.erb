@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
       <span class="fs-4"><%= t(".#{controller_name}.title") %></span>
-      <%= link_to '<i class="bi bi-plus-circle-fill"></i>'.html_safe, new_admin_speaker_path, class: 'btn btn-outline-primary' %>
+      <%= link_to '<i class="bi bi-plus-circle-fill"></i>'.html_safe, { controller: "admin/#{controller_name}", action: :new }, class: 'btn btn-outline-primary' %>
     </div>
 
     <div class="card-body p-0">
