@@ -1,0 +1,9 @@
+ar:
+  activerecord:
+    attributes:
+      user:
+        email: البريد الإلكتروني
+  devise:
+    failure:
+      invalid: خطأ في البريد الإلكتروني أو كلمة المرور
+      not_found_in_database: البريد الإلكتروني غير موجود
