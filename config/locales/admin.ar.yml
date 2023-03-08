@@ -1,6 +1,35 @@
 ar:
+  sign_out: تسجيل الخروج
+
+  attributes:
+    appears: ظاهر؟
+    content: المحتوى
+    created_at: وقت الإضافة
+    created_by: المستخدم المُضيف
+    duration: المدة
+    empty: ''
+    end_time: وقت النهاية
+    id: '#'
+    link: الرابط
+    medium: الوسيط
+    name: الاسم
+    playlist: قائمة التشغيل
+    producer: المُنتج
+    provider: المُزوّد
+    source: المصدر
+    speakers: المُتحدّثون
+    start_time: وقت البداية
+    tags: الوسوم
+    title: العنوان
+    updated_at: آخر تعديل
+
   admin:
     templates:
+      admin_navbar:
+        manage_speakers: إدارة المُتحدّثين
+        manage_playlists: إدارة قوائم التشغيل
+        manage_media: إدارة الوسائط
+        manage_cues: إدارة النصوص
       index:
         speakers:
           title: المُتحدّثون
