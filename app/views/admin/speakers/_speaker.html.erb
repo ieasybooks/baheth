@@ -9,7 +9,7 @@
               <h6 class="card-subtitle mb-2 text-muted"><%= speaker.description %></h6>
             </div>
 
-            <div>
+            <div class="text-nowrap">
               <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_speaker_path(speaker), class: 'btn btn-sm btn-outline-success' %>
               <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
                 admin_speaker_path(speaker),
@@ -63,8 +63,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% speaker.playlists.each do |record| %>
-                      <%= render 'admin/playlists/playlist_row', record: record %>
+                    <% speaker.playlists.each do |playlist| %>
+                      <%= render 'admin/playlists/playlist_row', record: playlist %>
                     <% end %>
                   </tbody>
                 </table>
@@ -86,8 +86,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% speaker.media.each do |record| %>
-                      <%= render 'admin/media/medium_row', record: record %>
+                    <% speaker.media.each do |medium| %>
+                      <%= render 'admin/media/medium_row', record: medium %>
                     <% end %>
                   </tbody>
                 </table>

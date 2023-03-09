@@ -1,8 +1,1 @@
 <%= render @playlist %>
-
-<div>
-  <%= link_to "Edit this playlist", edit_admin_playlist_path(@playlist) %> |
-  <%= link_to "Back to playlists", admin_playlists_path %>
-
-  <%= button_to "Destroy this playlist", admin_playlist_path(@playlist), method: :delete %>
-</div>

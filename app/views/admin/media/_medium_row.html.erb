@@ -13,6 +13,7 @@
   <td><%= record.user.name %></td>
   <td><%= record.created_at %></td>
   <td><%= record.updated_at %></td>
+  <td><%= link_to '<i class="bi bi-file-earmark-arrow-down-fill"></i>'.html_safe, rails_blob_path(record.transcript, disposition: 'preview'), class: 'btn btn-sm btn-outline-primary' %></td>
   <td><%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_medium_path(record), class: 'btn btn-sm btn-outline-success' %></td>
   <td>
     <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
@@ -25,5 +26,4 @@
       },
       class: 'btn btn-sm btn-outline-danger' %>
   </td>
-  <td><%= link_to '<i class="bi bi-file-earmark-arrow-down-fill"></i>'.html_safe, rails_blob_path(record.transcript, disposition: 'preview'), class: 'btn btn-sm btn-outline-primary' %></td>
 </tr>

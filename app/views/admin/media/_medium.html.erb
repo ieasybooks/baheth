@@ -1,67 +1,113 @@
 <div id="<%= dom_id medium %>">
-  <p>
-    <strong>Title:</strong>
-    <%= medium.title %>
-  </p>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card overflow-hidden">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-middle">
+            <div>
+              <h5 class="card-title"><i class="bi bi-film"></i> <%= medium.title %></h5>
+              <span class="card-subtitle mb-2 text-wrap text-muted"><%= medium.description %></span>
+            </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= medium.description %>
-  </p>
+            <div class="text-nowrap">
+              <%= link_to '<i class="bi bi-box-arrow-up-left"></i>'.html_safe, medium.link, class: 'btn btn-sm btn-outline-primary', target: '_blank' %>
+              <%= link_to '<i class="bi bi-file-earmark-arrow-down-fill"></i>'.html_safe, rails_blob_path(medium.transcript, disposition: 'preview'), class: 'btn btn-sm btn-outline-primary' %>
+              <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_medium_path(medium), class: 'btn btn-sm btn-outline-success' %>
+              <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
+                admin_medium_path(medium),
+                method: :delete,
+                data: {
+                  confirm: t('are_you_sure'),
+                  turbo_method: :delete,
+                  turbo_confirm: t('are_you_sure')
+                },
+                class: 'btn btn-sm btn-outline-danger' %>
+            </div>
+          </div>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= medium.duration %>
-  </p>
+          <hr style="margin-right: -1rem; margin-left: -1rem;">
 
-  <p>
-    <strong>Link:</strong>
-    <%= medium.link %>
-  </p>
+          <div class="row">
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.duration') %></p>
+              <p><%= seconds_to_hh_mm_ss(medium.duration) %></p>
 
-  <p>
-    <strong>Source:</strong>
-    <%= medium.source %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.producer') %></p>
+              <p><%= t("producers.#{medium.producer}") %></p>
 
-  <p>
-    <strong>Producer:</strong>
-    <%= medium.producer %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.tag_list') %></p>
+              <p><%= medium.tag_list %></p>
 
-  <p>
-    <strong>Provider:</strong>
-    <%= medium.provider %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
+              <p><%= medium.user.name %></p>
 
-  <p>
-    <strong>Transcript:</strong>
-    <%= link_to medium.transcript.filename, rails_blob_path(medium.transcript, disposition: 'preview') %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
+              <p><%= medium.created_at %></p>
+            </div>
 
-  <p>
-    <strong>Tag List:</strong>
-    <%= medium.tag_list %>
-  </p>
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.source') %></p>
+              <p><%= t("sources.#{medium.source}") %></p>
 
-  <p>
-    <strong>Hidden:</strong>
-    <%= medium.hidden %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.provider') %></p>
+              <p><%= medium.provider %></p>
 
-  <p>
-    <strong>Playlist:</strong>
-    <%= medium.playlist_id %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.appears') %></p>
+              <p><%= (medium.hidden ? '<i class="bi bi-x-circle-fill text-danger"></i>' : '<i class="bi bi-check-circle-fill text-success"></i>').html_safe %></p>
 
-  <p>
-    <strong>Speakers:</strong>
-    <%= medium.speaker_ids %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.cues') %></p>
+              <p><%= medium.cues.count %></p>
 
-  <p>
-    <strong>User:</strong>
-    <%= medium.user_id %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
+              <p><%= medium.updated_at %></p>
+            </div>
+          </div>
 
+          <div class="row mb-3">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.speakers') %> (<%= medium.speakers.count %>)</p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.speakers.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% medium.speakers.each do |speaker| %>
+                      <%= render 'admin/speakers/speaker_row', record: speaker %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.playlist') %></p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.playlists.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render 'admin/playlists/playlist_row', record: medium.playlist %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

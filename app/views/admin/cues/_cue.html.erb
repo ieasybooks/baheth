@@ -1,42 +1,119 @@
 <div id="<%= dom_id cue %>">
-  <p>
-    <strong>Content:</strong>
-    <%= cue.content %>
-  </p>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card overflow-hidden">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="card-subtitle mb-2 text-muted"><%= cue.content %></h6>
+            </div>
 
-  <p>
-    <strong>Start time:</strong>
-    <%= cue.start_time %>
-  </p>
+            <div class="text-nowrap">
+              <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_cue_path(cue), class: 'btn btn-sm btn-outline-success' %>
+              <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
+                admin_cue_path(cue),
+                method: :delete,
+                data: {
+                  confirm: t('are_you_sure'),
+                  turbo_method: :delete,
+                  turbo_confirm: t('are_you_sure')
+                },
+                class: 'btn btn-sm btn-outline-danger' %>
+            </div>
+          </div>
 
-  <p>
-    <strong>End time:</strong>
-    <%= cue.end_time %>
-  </p>
+          <hr style="margin-right: -1rem; margin-left: -1rem;">
 
-  <p>
-    <strong>Hidden:</strong>
-    <%= cue.hidden %>
-  </p>
+          <div class="row">
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.start_time') %></p>
+              <p><%= seconds_to_hh_mm_ss(cue.start_time) %></p>
 
-  <p>
-    <strong>Medium:</strong>
-    <%= cue.medium_id %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.appears') %></p>
+              <p><%= (cue.hidden ? '<i class="bi bi-x-circle-fill text-danger"></i>' : '<i class="bi bi-check-circle-fill text-success"></i>').html_safe %></p>
 
-  <p>
-    <strong>Playlist:</strong>
-    <%= cue.playlist_id %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
+              <p><%= cue.created_at %></p>
+            </div>
 
-  <p>
-    <strong>Speakers:</strong>
-    <%= cue.speaker_ids %>
-  </p>
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.end_time') %></p>
+              <p><%= seconds_to_hh_mm_ss(cue.end_time) %></p>
 
-  <p>
-    <strong>User:</strong>
-    <%= cue.user_id %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
+              <p><%= cue.user.name %></p>
 
+              <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
+              <p><%= cue.updated_at %></p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.speakers') %> (<%= cue.speakers.count %>)</p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.speakers.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% cue.speakers.each do |speaker| %>
+                      <%= render 'admin/speakers/speaker_row', record: speaker %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.playlist') %></p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.playlists.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render 'admin/playlists/playlist_row', record: cue.playlist %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.medium') %></p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.media.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render 'admin/media/medium_row', record: cue.medium %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
