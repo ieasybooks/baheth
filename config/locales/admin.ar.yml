@@ -53,6 +53,11 @@ ar:
         playlist: إضافة قائمة تشغيل
         medium: إضافة وسيط
         cue: إضافة نص
+      edit:
+        speaker: تعديل مُتحدّث
+        playlist: تعديل قائمة تشغيل
+        medium: تعديل وسيط
+        cue: تعديل نص
       index:
         speakers:
           title: المُتحدّثون
