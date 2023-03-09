@@ -10,7 +10,7 @@
   <td><%= record.user.name %></td>
   <td><%= record.created_at %></td>
   <td><%= record.updated_at %></td>
-  <td><%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_cue_path(record), class: 'btn btn-outline-success' %></td>
+  <td><%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_cue_path(record), class: 'btn btn-sm btn-outline-success' %></td>
   <td>
     <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
       admin_cue_path(record),
@@ -20,6 +20,6 @@
         turbo_method: :delete,
         turbo_confirm: t('are_you_sure')
       },
-      class: 'btn btn-outline-danger' %>
+      class: 'btn btn-sm btn-outline-danger' %>
   </td>
 </tr>

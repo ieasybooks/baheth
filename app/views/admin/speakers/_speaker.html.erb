@@ -10,7 +10,7 @@
             </div>
 
             <div>
-              <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_speaker_path(speaker), class: 'btn btn-outline-success' %>
+              <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_speaker_path(speaker), class: 'btn btn-sm btn-outline-success' %>
               <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
                 admin_speaker_path(speaker),
                 method: :delete,
@@ -19,7 +19,7 @@
                   turbo_method: :delete,
                   turbo_confirm: t('are_you_sure')
                 },
-                class: 'btn btn-outline-danger' %>
+                class: 'btn btn-sm btn-outline-danger' %>
             </div>
           </div>
 
@@ -32,20 +32,29 @@
 
               <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
               <p><%= speaker.user.name %></p>
+
+              <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
+              <p><%= speaker.created_at %></p>
             </div>
 
             <div class="col">
-              <p class="mb-0 text-muted"><%= t('attributes.hidden') %></p>
-              <p><%= t(speaker.hidden) %></p>
+              <p class="mb-0 text-muted"><%= t('attributes.appears') %></p>
+              <p><%= (speaker.hidden ? '<i class="bi bi-x-circle-fill text-danger"></i>' : '<i class="bi bi-check-circle-fill text-success"></i>').html_safe %></p>
+
+              <p class="mb-0 text-muted"><%= t('attributes.cues') %></p>
+              <p><%= speaker.cues.count %></p>
+
+              <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
+              <p><%= speaker.updated_at %></p>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col">
-              <p class="text-muted"><%= t('attributes.playlists') %></p>
+              <p class="text-muted"><%= t('attributes.playlists') %> (<%= speaker.playlists.count %>)</p>
 
               <div class="table-responsive border border-bottom-0 rounded">
-                <table class="table table-hover mb-0 text-nowrap">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
                   <thead>
                     <tr>
                       <% t('admin.templates.index.playlists.attributes').each do |attribute| %>
@@ -65,10 +74,10 @@
 
           <div class="row">
             <div class="col">
-              <p class="text-muted"><%= t('attributes.media') %></p>
+              <p class="text-muted"><%= t('attributes.media') %> (<%= speaker.media.count %>)</p>
 
               <div class="table-responsive border border-bottom-0 rounded">
-                <table class="table table-hover mb-0 text-nowrap">
+                <table class="table table-hover mb-0 text-nowrap align-middle">
                   <thead>
                     <tr>
                       <% t('admin.templates.index.media.attributes').each do |attribute| %>
