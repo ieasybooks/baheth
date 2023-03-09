@@ -4,6 +4,9 @@ ar:
   are_you_sure: هل أنت متأكد؟
   joiner: '، '
 
+  true: نعم
+  false: لا
+
   sources:
     youtube: يوتيوب
 

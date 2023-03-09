@@ -1,37 +1,92 @@
 <div id="<%= dom_id speaker %>">
-  <p>
-    <strong>Name:</strong>
-    <%= speaker.name %>
-  </p>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card overflow-hidden">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h5 class="card-title"><i class="bi bi-person-circle"></i> <%= speaker.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= speaker.description %></h6>
+            </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= speaker.description %>
-  </p>
+            <div>
+              <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_speaker_path(speaker), class: 'btn btn-outline-success' %>
+              <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
+                admin_speaker_path(speaker),
+                method: :delete,
+                data: {
+                  confirm: t('are_you_sure'),
+                  turbo_method: :delete,
+                  turbo_confirm: t('are_you_sure')
+                },
+                class: 'btn btn-outline-danger' %>
+            </div>
+          </div>
 
-  <p>
-    <strong>Tag List:</strong>
-    <%= speaker.tag_list %>
-  </p>
+          <hr style="margin-right: -1rem; margin-left: -1rem;">
 
-  <p>
-    <strong>Hidden:</strong>
-    <%= speaker.hidden %>
-  </p>
+          <div class="row">
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.tag_list') %></p>
+              <p><%= speaker.tag_list %></p>
 
-  <p>
-    <strong>Media:</strong>
-    <%= speaker.medium_ids %>
-  </p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
+              <p><%= speaker.user.name %></p>
+            </div>
 
-  <p>
-    <strong>Playlists:</strong>
-    <%= speaker.playlist_ids %>
-  </p>
+            <div class="col">
+              <p class="mb-0 text-muted"><%= t('attributes.hidden') %></p>
+              <p><%= t(speaker.hidden) %></p>
+            </div>
+          </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= speaker.user_id %>
-  </p>
+          <div class="row mb-3">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.playlists') %></p>
 
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.playlists.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% speaker.playlists.each do |record| %>
+                      <%= render 'admin/playlists/playlist_row', record: record %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p class="text-muted"><%= t('attributes.media') %></p>
+
+              <div class="table-responsive border border-bottom-0 rounded">
+                <table class="table table-hover mb-0 text-nowrap">
+                  <thead>
+                    <tr>
+                      <% t('admin.templates.index.media.attributes').each do |attribute| %>
+                        <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% speaker.media.each do |record| %>
+                      <%= render 'admin/media/medium_row', record: record %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

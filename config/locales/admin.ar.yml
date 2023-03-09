@@ -18,6 +18,8 @@ ar:
 
   attributes:
     appears: ظاهر؟
+    cue: النص
+    cues: النصوص
     content: المحتوى
     created_at: وقت الإضافة
     created_by: المستخدم المُضيف
@@ -28,12 +30,15 @@ ar:
     hidden: مخفي؟
     id: '#'
     link: الرابط
+    media: الوسائط
     medium: الوسيط
     name: الاسم
     playlist: قائمة التشغيل
+    playlists: قوائم التشغيل
     producer: المُنتج
     provider: المُزوّد
     source: المصدر
+    speaker: المُتحدّث
     speakers: المُتحدّثون
     start_time: وقت البداية
     tag_list: الوسوم
