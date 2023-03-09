@@ -10,6 +10,7 @@ class Medium < ApplicationRecord
 
   validates :title, :duration, :link, :source, :producer, :provider, :transcript, presence: true
   validates :link, url: { schemes: ['https'] }
+  validates :duration, numericality: { greater_than: 0 }
 
   validate :plain_text_transcript?
 
