@@ -2,6 +2,11 @@ class Medium < ApplicationRecord
   SOURCES = %i[youtube].freeze
   PRODUCERS = %i[almufaragh].freeze
 
+  include MeiliSearch::Rails
+
+  extend Pagy::Meilisearch
+  ActiveRecord_Relation.include Pagy::Meilisearch
+
   belongs_to :user
   belongs_to :playlist
   has_many :speakers, through: :playlist
@@ -21,5 +26,13 @@ class Medium < ApplicationRecord
 
   def plain_text_transcript?
     errors.add(:transcript, 'should be text/plain file (.txt)') if transcript.content_type != 'text/plain'
+  end
+
+  meilisearch do
+    attribute :title, :description
+
+    attribute :tags do
+      tag_list.join('، ')
+    end
   end
 end

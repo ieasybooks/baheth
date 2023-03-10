@@ -1,33 +1,45 @@
-<div id="<%= controller_name %>">
-  <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-      <span class="fs-4"><%= t(".#{controller_name}.title") %></span>
-      <%= link_to '<i class="bi bi-plus-circle-fill"></i>'.html_safe, { controller: "admin/#{controller_name}", action: :new }, class: 'btn btn-sm btn-outline-primary' %>
-    </div>
+<div class="row">
+  <div class="col">
+    <%= form_with url: { controller: "admin/#{controller_name}", action: :index }, method: :get, class: 'input-group mb-3' do |f| %>
+      <%= f.label :query, t(".#{controller_name}.search_label"), class: 'form-label' %>
+      <div class="input-group">
+        <%= f.search_field :query, class: 'form-control', value: params[:query] %>
+        <%= f.submit t('search'), class: 'btn btn-outline-secondary', name: nil %>
+      </div>
+    <% end %>
 
-    <div class="card-body p-0">
-      <div class="table-responsive">
-        <table class="table table-hover mb-0 text-nowrap">
-          <thead>
-            <tr>
-              <% t(".#{controller_name}.attributes").each do |attribute| %>
-                <th scope="col"><%= t("attributes.#{attribute}") %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <% records.each do |record| %>
-              <%= render "#{controller_name.singularize}_row", record: record %>
-            <% end %>
-          </tbody>
-        </table>
+    <div id="<%= controller_name %>">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span class="fs-4"><%= t(".#{controller_name}.title") %></span>
+          <%= link_to '<i class="bi bi-plus-circle-fill"></i>'.html_safe, { controller: "admin/#{controller_name}", action: :new }, class: 'btn btn-sm btn-outline-primary' %>
+        </div>
+
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0 text-nowrap">
+              <thead>
+                <tr>
+                  <% t(".#{controller_name}.attributes").each do |attribute| %>
+                    <th scope="col"><%= t("attributes.#{attribute}") %></th>
+                  <% end %>
+                </tr>
+              </thead>
+              <tbody>
+                <% records.each do |record| %>
+                  <%= render "#{controller_name.singularize}_row", record: record %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <%= t(".#{controller_name}.count") %>: <%= controller_name.classify.constantize.count %>
+        </div>
       </div>
     </div>
 
-    <div class="card-footer">
-      <%= t(".#{controller_name}.count") %>: <%= controller_name.classify.constantize.count %>
-    </div>
+    <%= render 'templates/pagy_nav', pagy: pagy %>
   </div>
 </div>
-
-<%= render 'templates/pagy_nav', pagy: pagy %>

@@ -1,4 +1,9 @@
 class Cue < ApplicationRecord
+  include MeiliSearch::Rails
+
+  extend Pagy::Meilisearch
+  ActiveRecord_Relation.include Pagy::Meilisearch
+
   belongs_to :user
   belongs_to :medium
   has_one :playlist, through: :medium
@@ -12,5 +17,9 @@ class Cue < ApplicationRecord
 
   def truncated_content(content_limit = 25)
     content.size > content_limit ? "#{content[0..content_limit]}..." : content
+  end
+
+  meilisearch do
+    attribute :content
   end
 end

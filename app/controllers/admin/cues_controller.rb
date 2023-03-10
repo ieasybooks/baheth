@@ -1,5 +1,7 @@
 module Admin
   class CuesController < AdminController
+    INCLUDES = %i[medium playlist speakers user].freeze
+
     include Pagy::Backend
 
     before_action :sanitize_cue_params, only: %i[create update]
@@ -9,7 +11,13 @@ module Admin
 
     # GET /admin/cues or /admin/cues.json
     def index
-      @pagy, @cues = pagy(Cue.accessible_by(current_ability).includes(%i[medium playlist speakers user]).order(:id))
+      if params[:query].present?
+        search
+      elsif params[:tag].present?
+        tag_filter
+      else
+        @pagy, @cues = pagy(Cue.accessible_by(current_ability).includes(INCLUDES).order(:id))
+      end
     end
 
     # GET /admin/cues/1 or /admin/cues/1.json
@@ -60,6 +68,16 @@ module Admin
     end
 
     private
+
+    def search
+      cues = Cue.accessible_by(current_ability).includes(INCLUDES).pagy_search(params[:query])
+      @pagy, @cues = pagy_meilisearch(cues)
+    end
+
+    def tag_filter
+      cues = Cue.accessible_by(current_ability).tagged_with(params[:tag]).includes(INCLUDES).order(:id)
+      @pagy, @cues = pagy(cues)
+    end
 
     def sanitize_cue_params
       params[:cue][:start_time] = params[:cue][:start_time].to_i.seconds

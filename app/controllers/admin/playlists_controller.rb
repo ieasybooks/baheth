@@ -1,5 +1,7 @@
 module Admin
   class PlaylistsController < AdminController
+    INCLUDES = %i[taggings speakers user].freeze
+
     include Pagy::Backend
 
     load_and_authorize_resource
@@ -7,7 +9,13 @@ module Admin
 
     # GET /admin/playlists or /admin/playlists.json
     def index
-      @pagy, @playlists = pagy(Playlist.accessible_by(current_ability).includes(%i[taggings speakers user]).order(:id))
+      if params[:query].present?
+        search
+      elsif params[:tag].present?
+        tag_filter
+      else
+        @pagy, @playlists = pagy(Playlist.accessible_by(current_ability).includes(INCLUDES).order(:id))
+      end
     end
 
     # GET /admin/playlists/1 or /admin/playlists/1.json
@@ -58,6 +66,16 @@ module Admin
     end
 
     private
+
+    def search
+      playlists = Playlist.accessible_by(current_ability).includes(INCLUDES).pagy_search(params[:query])
+      @pagy, @playlists = pagy_meilisearch(playlists)
+    end
+
+    def tag_filter
+      playlists = Playlist.accessible_by(current_ability).tagged_with(params[:tag]).includes(INCLUDES).order(:id)
+      @pagy, @playlists = pagy(playlists)
+    end
 
     # Only allow a list of trusted parameters through.
     def playlist_params

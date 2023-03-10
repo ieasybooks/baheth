@@ -1,4 +1,5 @@
 ar:
+  search: إبحث
   sign_out: تسجيل الخروج
 
   helpers:
@@ -65,6 +66,7 @@ ar:
         cue: تعديل نص
       index:
         speakers:
+          search_label: البحث في المُتحدّثين حسب الاسم، الوصف، والوسوم
           title: المُتحدّثون
           count: عدد المُتحدّثين
           attributes:
@@ -78,6 +80,7 @@ ar:
             - empty
             - empty
         playlists:
+          search_label: البحث في قوائم التشغيل حسب العنوان، الوصف، والوسوم
           title: قوائم التشغيل
           count: عدد قوائم التشغيل
           attributes:
@@ -93,6 +96,7 @@ ar:
             - empty
             - empty
         media:
+          search_label: البحث في الوسائط حسب العنوان، الوصف، والوسوم
           title: الوسائط
           count: عدد الوسائط
           attributes:
@@ -114,6 +118,7 @@ ar:
             - empty
             - empty
         cues:
+          search_label: البحث في النصوص حسب المحتوى
           title: النصوص
           count: عدد النصوص
           attributes:

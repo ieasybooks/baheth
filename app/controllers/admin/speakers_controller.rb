@@ -1,5 +1,7 @@
 module Admin
   class SpeakersController < AdminController
+    INCLUDES = %i[taggings user].freeze
+
     include Pagy::Backend
 
     load_and_authorize_resource
@@ -7,7 +9,13 @@ module Admin
 
     # GET /admin/speakers or /admin/speakers.json
     def index
-      @pagy, @speakers = pagy(Speaker.accessible_by(current_ability).includes(%i[taggings user]).order(:id))
+      if params[:query].present?
+        search
+      elsif params[:tag].present?
+        tag_filter
+      else
+        @pagy, @speakers = pagy(Speaker.accessible_by(current_ability).includes(INCLUDES).order(:id))
+      end
     end
 
     # GET /admin/speakers/1 or /admin/speakers/1.json
@@ -58,6 +66,16 @@ module Admin
     end
 
     private
+
+    def search
+      speakers = Speaker.accessible_by(current_ability).includes(INCLUDES).pagy_search(params[:query])
+      @pagy, @speakers = pagy_meilisearch(speakers)
+    end
+
+    def tag_filter
+      speakers = Speaker.accessible_by(current_ability).tagged_with(params[:tag]).includes(INCLUDES).order(:id)
+      @pagy, @speakers = pagy(speakers)
+    end
 
     # Only allow a list of trusted parameters through.
     def speaker_params

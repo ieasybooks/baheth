@@ -134,6 +134,9 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -162,10 +165,15 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meilisearch (0.22.0)
+      httparty (>= 0.17.1, < 0.22.0)
+    meilisearch-rails (0.8.1)
+      meilisearch (~> 0.22.0)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
     msgpack (1.6.0)
+    multi_xml (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -350,6 +358,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   local_time (~> 2.1)
+  meilisearch-rails (~> 0.8.1)
   oj (~> 3.14, >= 3.14.2)
   pagy (~> 6.0, >= 6.0.2)
   pg (~> 1.1)
