@@ -45,6 +45,7 @@ ar:
     tag_list: الوسوم
     title: العنوان
     transcript_txt: ملف النص
+    transcript_srt: ملف الحواشي
     updated_at: آخر تعديل
 
   admin:
