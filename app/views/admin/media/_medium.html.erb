@@ -30,7 +30,7 @@
           <div class="row">
             <div class="col">
               <p class="mb-0 text-muted"><%= t('attributes.duration') %></p>
-              <p><%= seconds_to_hh_mm_ss(medium.duration) %></p>
+              <p><%= seconds_to_time(medium.duration) %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.producer') %></p>
               <p><%= t("producers.#{medium.producer}") %></p>

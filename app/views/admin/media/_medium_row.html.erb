@@ -1,7 +1,7 @@
 <tr class="align-middle">
   <th scope="row"><%= record.id %></th>
   <td><%= link_to record.title, admin_medium_path(record) %></td>
-  <td><%= seconds_to_hh_mm_ss(record.duration) %></td>
+  <td><%= seconds_to_time(record.duration) %></td>
   <td><%= link_to '<i class="bi bi-box-arrow-up-left"></i>'.html_safe, record.link, class: 'btn btn-sm btn-outline-primary', target: '_blank' %></td>
   <td><%= t("sources.#{record.source}") %></td>
   <td><%= t("producers.#{record.producer}") %></td>
