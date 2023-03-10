@@ -53,9 +53,6 @@ group :development do
 
   # Easily generate fake data.
   gem 'faker'
-
-  # A library for bulk inserting data using ActiveRecord.
-  gem 'activerecord-import'
 end
 
 # Default Rails gems:
