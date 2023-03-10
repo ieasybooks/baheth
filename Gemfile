@@ -32,23 +32,31 @@ gem 'validate_url', '~> 1.0', '>= 1.0.15'
 # The fastest JSON parser and object serializer.
 gem 'oj', '~> 3.14', '>= 3.14.2'
 
-# Lint ERB files, "ERB Linter" VSCode extension is required.
-gem 'erb_lint', require: false
+group :development do
+  # Lint ERB files, "ERB Linter" VSCode extension is required.
+  gem 'erb_lint'
 
-# Format, analyze, and fix code formatting issues.
-gem 'rubocop', require: false
+  # Format, analyze, and fix code formatting issues.
+  gem 'rubocop'
 
-# RuboCop extension specified for Rails projects.
-gem 'rubocop-rails', require: false
+  # RuboCop extension specified for Rails projects.
+  gem 'rubocop-rails'
 
-# Code style checking for Capybara test files.
-gem 'rubocop-capybara', require: false
+  # Code style checking for Capybara test files.
+  gem 'rubocop-capybara'
 
-# IDE tools for code completion, inline documentation, and static analysis.
-gem 'solargraph', require: false
+  # IDE tools for code completion, inline documentation, and static analysis.
+  gem 'solargraph'
 
-# Help to kill N+1 queries and unused eager loading.
-gem 'bullet', group: 'development'
+  # Help to kill N+1 queries and unused eager loading.
+  gem 'bullet'
+
+  # Easily generate fake data.
+  gem 'faker'
+
+  # A library for bulk inserting data using ActiveRecord.
+  gem 'activerecord-import'
+end
 
 # Default Rails gems:
 
