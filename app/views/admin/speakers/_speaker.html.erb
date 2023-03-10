@@ -63,7 +63,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% speaker.playlists.each do |playlist| %>
+                    <% speaker.playlists.includes(%i[taggings speakers user]).each do |playlist| %>
                       <%= render 'admin/playlists/playlist_row', record: playlist %>
                     <% end %>
                   </tbody>
@@ -86,7 +86,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% speaker.media.each do |medium| %>
+                    <% speaker.media.includes([{ transcript_attachment: :blob }, :taggings, :playlist, :speakers, :user]).each do |medium| %>
                       <%= render 'admin/media/medium_row', record: medium %>
                     <% end %>
                   </tbody>

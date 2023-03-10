@@ -9,7 +9,7 @@ module Admin
 
     # GET /admin/cues or /admin/cues.json
     def index
-      @pagy, @cues = pagy(Cue.accessible_by(current_ability).order(:id))
+      @pagy, @cues = pagy(Cue.accessible_by(current_ability).includes(%i[medium playlist speakers user]).order(:id))
     end
 
     # GET /admin/cues/1 or /admin/cues/1.json

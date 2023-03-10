@@ -9,7 +9,13 @@ module Admin
 
     # GET /admin/media or /admin/media.json
     def index
-      @pagy, @media = pagy(Medium.accessible_by(current_ability).order(:id))
+      @pagy, @media = pagy(Medium.accessible_by(current_ability).includes([
+                                                                            { transcript_attachment: :blob },
+                                                                            :taggings,
+                                                                            :playlist,
+                                                                            :speakers,
+                                                                            :user
+                                                                          ]).order(:id))
     end
 
     # GET /admin/media/1 or /admin/media/1.json

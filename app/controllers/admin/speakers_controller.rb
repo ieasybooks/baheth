@@ -7,7 +7,7 @@ module Admin
 
     # GET /admin/speakers or /admin/speakers.json
     def index
-      @pagy, @speakers = pagy(Speaker.accessible_by(current_ability).order(:id))
+      @pagy, @speakers = pagy(Speaker.accessible_by(current_ability).includes(%i[taggings user]).order(:id))
     end
 
     # GET /admin/speakers/1 or /admin/speakers/1.json

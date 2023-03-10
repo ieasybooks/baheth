@@ -7,7 +7,7 @@ module Admin
 
     # GET /admin/playlists or /admin/playlists.json
     def index
-      @pagy, @playlists = pagy(Playlist.accessible_by(current_ability).order(:id))
+      @pagy, @playlists = pagy(Playlist.accessible_by(current_ability).includes(%i[taggings speakers user]).order(:id))
     end
 
     # GET /admin/playlists/1 or /admin/playlists/1.json

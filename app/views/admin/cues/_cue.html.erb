@@ -59,7 +59,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% cue.speakers.each do |speaker| %>
+                    <% cue.speakers.includes(%i[taggings user]).each do |speaker| %>
                       <%= render 'admin/speakers/speaker_row', record: speaker %>
                     <% end %>
                   </tbody>
