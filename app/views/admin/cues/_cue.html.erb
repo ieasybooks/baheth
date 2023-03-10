@@ -33,7 +33,7 @@
               <p><%= cue.user.name %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
-              <p><%= cue.updated_at %></p>
+              <p><%= local_time cue.updated_at, :long %></p>
             </div>
 
             <div class="col">
@@ -41,7 +41,7 @@
               <p><%= seconds_to_hh_mm_ss(cue.end_time) %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
-              <p><%= cue.created_at %></p>
+              <p><%= local_time cue.created_at, :long %></p>
             </div>
           </div>
 

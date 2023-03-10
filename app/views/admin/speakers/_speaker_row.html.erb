@@ -4,8 +4,8 @@
   <td><%= record.tag_list %></td>
   <td><%= (record.hidden ? '<i class="bi bi-x-circle-fill text-danger fs-4"></i>' : '<i class="bi bi-check-circle-fill text-success fs-4"></i>').html_safe %></td>
   <td><%= record.user.name %></td>
-  <td><%= record.created_at %></td>
-  <td><%= record.updated_at %></td>
+  <td><%= local_time record.created_at, :long %></td>
+  <td><%= local_time record.updated_at, :long %></td>
   <td><%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_speaker_path(record), class: 'btn btn-sm btn-outline-success' %></td>
   <td>
     <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,

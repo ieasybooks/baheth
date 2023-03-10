@@ -1,4 +1,8 @@
 ar:
+  time:
+    formats:
+      long: '%e %B، %Y - %l:%M %P'
+
   baheth: باحث
 
   are_you_sure: هل أنت متأكد؟

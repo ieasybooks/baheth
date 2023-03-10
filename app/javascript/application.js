@@ -5,4 +5,5 @@ import "controllers"
 import "./popper"
 import "./bootstrap.min"
 
+import "./custom/local_time_settings"
 import "./custom/popover_initializer"

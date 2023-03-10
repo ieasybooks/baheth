@@ -151,6 +151,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    local_time (2.1.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -348,6 +349,7 @@ DEPENDENCIES
   faker
   importmap-rails
   jbuilder
+  local_time (~> 2.1)
   oj (~> 3.14, >= 3.14.2)
   pagy (~> 6.0, >= 6.0.2)
   pg (~> 1.1)

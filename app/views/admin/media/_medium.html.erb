@@ -42,7 +42,7 @@
               <p><%= medium.user.name %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
-              <p><%= medium.created_at %></p>
+              <p><%= local_time medium.created_at, :long %></p>
             </div>
 
             <div class="col">
@@ -59,7 +59,7 @@
               <p><%= medium.cues.count %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
-              <p><%= medium.updated_at %></p>
+              <p><%= local_time medium.updated_at, :long %></p>
             </div>
           </div>
 

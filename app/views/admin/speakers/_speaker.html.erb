@@ -34,7 +34,7 @@
               <p><%= speaker.user.name %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
-              <p><%= speaker.created_at %></p>
+              <p><%= local_time speaker.created_at, :long %></p>
             </div>
 
             <div class="col">
@@ -45,7 +45,7 @@
               <p><%= speaker.cues.count %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
-              <p><%= speaker.updated_at %></p>
+              <p><%= local_time speaker.updated_at, :long %></p>
             </div>
           </div>
 
