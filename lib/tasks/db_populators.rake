@@ -8,9 +8,8 @@ namespace :db do # rubocop:disable Metrics/BlockLength
     user = User.first
 
     Speaker.delete_all
-    speakers = []
 
-    10.times do
+    5.times do
       speaker = Speaker.new(
         name: Faker::Name.name,
         description: Faker::Lorem.paragraphs.join(' '),
@@ -19,11 +18,8 @@ namespace :db do # rubocop:disable Metrics/BlockLength
       )
 
       speaker.tag_list = Faker::Lorem.words
-
-      speakers << speaker
+      speaker.save!
     end
-
-    Speaker.import! speakers
   end
 
   desc 'Empty the playlists table and fill it with fake data'
@@ -31,26 +27,22 @@ namespace :db do # rubocop:disable Metrics/BlockLength
     user = User.first
 
     Playlist.delete_all
-    playlists = []
 
     Speaker.all.each do |speaker|
-      10.times do
+      5.times do
         playlist = Playlist.new(
           title: Faker::Book.title,
           description: Faker::Lorem.paragraphs.join(' '),
           link: 'https://youtube.com',
           hidden: false,
-          speakers: [speaker],
           user:
         )
 
         playlist.tag_list = Faker::Lorem.words
-
-        playlists << playlist
+        playlist.speakers << [speaker]
+        playlist.save!
       end
     end
-
-    Playlist.import! playlists
   end
 
   desc 'Empty the media table and fill it with fake data'
@@ -58,10 +50,9 @@ namespace :db do # rubocop:disable Metrics/BlockLength
     user = User.first
 
     Medium.delete_all
-    media = []
 
     Playlist.all.each do |playlist|
-      10.times do
+      5.times do
         medium = Medium.new(
           title: Faker::Book.title,
           description: Faker::Lorem.paragraphs.join(' '),
@@ -70,20 +61,15 @@ namespace :db do # rubocop:disable Metrics/BlockLength
           source: 'youtube',
           producer: 'almufaragh',
           provider: Faker::Name.name,
-          hidden: false,
-          playlist:,
-          user:
+          hidden: false, playlist:, user:
         )
 
         medium.tag_list = Faker::Lorem.words
         medium.transcript.attach(io: Rails.root.join('test/fixtures/files/transcript.txt').open,
                                  filename: 'transcript.txt', content_type: 'text/plain')
-
-        media << medium
+        medium.save!
       end
     end
-
-    Medium.import! media
   end
 
   desc 'Empty the cues table and fill it with fake data'
@@ -91,10 +77,9 @@ namespace :db do # rubocop:disable Metrics/BlockLength
     user = User.first
 
     Cue.delete_all
-    cues = []
 
     Medium.all.each do |medium|
-      10.times do
+      5.times do
         cue = Cue.new(
           content: Faker::Lorem.paragraphs.join(' '),
           start_time: Faker::Number.between(from: 100, to: 1000),
@@ -103,11 +88,9 @@ namespace :db do # rubocop:disable Metrics/BlockLength
           user:
         )
 
-        cues << cue
+        cue.save!
       end
     end
-
-    Cue.import! cues
   end
 
   desc 'Empty the database and fill it with fake data'
