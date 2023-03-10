@@ -6,7 +6,7 @@
   <td><%= t("sources.#{record.source}") %></td>
   <td><%= t("producers.#{record.producer}") %></td>
   <td><%= record.provider %></td>
-  <td><%= record.tag_list %></td>
+  <td><%= tags_to_links(record).join(t('joiner')).html_safe %></td>
   <td><%= (record.hidden ? '<i class="bi bi-x-circle-fill text-danger fs-4"></i>' : '<i class="bi bi-check-circle-fill text-success fs-4"></i>').html_safe %></td>
   <td><%= link_to record.playlist.title, admin_playlist_path(record.playlist) %></td>
   <td><%= speakers_to_links(record.speakers).join(t('joiner')).html_safe %></td>

@@ -29,7 +29,7 @@
           <div class="row">
             <div class="col">
               <p class="mb-0 text-muted"><%= t('attributes.tag_list') %></p>
-              <p><%= playlist.tag_list %></p>
+              <p><%= tags_to_links(playlist).join(t('joiner')).html_safe %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
               <p><%= playlist.user.name %></p>

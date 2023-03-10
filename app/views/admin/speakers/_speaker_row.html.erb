@@ -1,7 +1,7 @@
 <tr class="align-middle">
   <th scope="row"><%= record.id %></th>
   <td><%= link_to record.name, admin_speaker_path(record) %></td>
-  <td><%= record.tag_list %></td>
+  <td><%= tags_to_links(record).join(t('joiner')).html_safe %></td>
   <td><%= (record.hidden ? '<i class="bi bi-x-circle-fill text-danger fs-4"></i>' : '<i class="bi bi-check-circle-fill text-success fs-4"></i>').html_safe %></td>
   <td><%= record.user.name %></td>
   <td><%= local_time record.created_at, :long %></td>

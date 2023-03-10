@@ -36,7 +36,7 @@
               <p><%= t("producers.#{medium.producer}") %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.tag_list') %></p>
-              <p><%= medium.tag_list %></p>
+              <p><%= tags_to_links(medium).join(t('joiner')).html_safe %></p>
 
               <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
               <p><%= medium.user.name %></p>
