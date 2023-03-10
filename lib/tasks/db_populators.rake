@@ -28,20 +28,18 @@ namespace :db do # rubocop:disable Metrics/BlockLength
 
     Playlist.delete_all
 
-    Speaker.all.each do |speaker|
-      5.times do
-        playlist = Playlist.new(
-          title: Faker::Book.title,
-          description: Faker::Lorem.paragraphs.join(' '),
-          link: 'https://youtube.com',
-          hidden: false,
-          user:
-        )
+    5.times do
+      playlist = Playlist.new(
+        title: Faker::Book.title,
+        description: Faker::Lorem.paragraphs.join(' '),
+        link: 'https://youtube.com',
+        hidden: false,
+        user:
+      )
 
-        playlist.tag_list = Faker::Lorem.words
-        playlist.speakers << [speaker]
-        playlist.save!
-      end
+      playlist.tag_list = Faker::Lorem.words
+      playlist.speakers << Speaker.all.sample(3)
+      playlist.save!
     end
   end
 
