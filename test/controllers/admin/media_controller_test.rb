@@ -28,7 +28,7 @@ module Admin
             description: @medium.description,
             duration: @medium.duration,
             link: @medium.link,
-            transcript: fixture_file_upload('transcript.txt', 'text/plain'),
+            transcript_txt: fixture_file_upload('transcript.txt', 'text/plain'),
             playlist_id: @medium.playlist_id
           }
         }
@@ -54,7 +54,7 @@ module Admin
           description: @medium.description,
           duration: @medium.duration,
           link: @medium.link,
-          transcript: fixture_file_upload('transcript.txt', 'text/plain'),
+          transcript_txt: fixture_file_upload('transcript.txt', 'text/plain'),
           playlist_id: @medium.playlist_id
         }
       }

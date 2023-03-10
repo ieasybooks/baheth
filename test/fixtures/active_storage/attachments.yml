@@ -1,4 +1,4 @@
-first_transcript_attachment:
+first_transcript_txt_attachment:
   name: "transcript"
   record: first_medium (Medium)
-  blob: first_transcript_blob
+  blob: first_transcript_txt_blob

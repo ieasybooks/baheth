@@ -1,1 +1,1 @@
-first_transcript_blob: <%= ActiveStorage::FixtureSet.blob filename: "transcript.txt" %>
+first_transcript_txt_blob: <%= ActiveStorage::FixtureSet.blob filename: 'transcript.txt' %>

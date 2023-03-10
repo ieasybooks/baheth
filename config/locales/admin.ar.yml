@@ -44,7 +44,7 @@ ar:
     start_time: وقت البداية
     tag_list: الوسوم
     title: العنوان
-    transcript: ملف النص
+    transcript_txt: ملف النص
     updated_at: آخر تعديل
 
   admin:

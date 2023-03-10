@@ -87,7 +87,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% playlist.media.includes([{ transcript_attachment: :blob }, :taggings, :speakers, :user]).each do |medium| %>
+                    <% playlist.media.includes([{ transcript_txt_attachment: :blob }, :taggings, :speakers, :user]).each do |medium| %>
                       <%= render 'admin/media/medium_row', record: medium %>
                     <% end %>
                   </tbody>

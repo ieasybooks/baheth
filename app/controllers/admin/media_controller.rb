@@ -1,6 +1,6 @@
 module Admin
   class MediaController < AdminController
-    INCLUDES = [{ transcript_attachment: :blob }, :taggings, :playlist, :speakers, :user].freeze
+    INCLUDES = [{ transcript_txt_attachment: :blob }, :taggings, :playlist, :speakers, :user].freeze
 
     include Pagy::Backend
 
@@ -87,7 +87,7 @@ module Admin
     def medium_params
       params.require(:medium).permit(
         :title, :description, :duration, :link, :source,
-        :producer, :provider, :transcript, :tag_list, :hidden,
+        :producer, :provider, :transcript_txt, :tag_list, :hidden,
         :playlist_id
       )
     end

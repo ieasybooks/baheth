@@ -63,8 +63,8 @@ namespace :db do # rubocop:disable Metrics/BlockLength
         )
 
         medium.tag_list = Faker::Lorem.words
-        medium.transcript.attach(io: Rails.root.join('test/fixtures/files/transcript.txt').open,
-                                 filename: 'transcript.txt', content_type: 'text/plain')
+        medium.transcript_txt.attach(io: Rails.root.join('test/fixtures/files/transcript.txt').open,
+                                     filename: 'transcript.txt', content_type: 'text/plain')
         medium.save!
       end
     end
