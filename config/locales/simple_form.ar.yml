@@ -1,12 +1,22 @@
 ar:
   simple_form:
+    "yes": نعم
+    "no": لا
+    required:
+      text: مطلوب
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: 'يُرجى مراجعة الأخطاء في الأسفل:'
     hints:
       defaults:
         tag_list: 'يجب فصل الوسوم بفاصلة عربية كهذه: "،".'
     prompts:
       defaults:
-        medium: 'قم باختيار الوسيط'
-        playlist: 'قم باختيار قائمة التشغيل'
+        medium: قم باختيار الوسيط
+        playlist: قم باختيار قائمة التشغيل
     options:
       medium:
         source:
