@@ -25,7 +25,7 @@
     </div>
 
     <div class="card-footer">
-      <%= t(".#{controller_name}.count") %>: <%= records.count %>
+      <%= t(".#{controller_name}.count") %>: <%= controller_name.classify.constantize.count %>
     </div>
   </div>
 </div>
