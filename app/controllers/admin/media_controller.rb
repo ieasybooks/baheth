@@ -87,8 +87,8 @@ module Admin
     def medium_params
       params.require(:medium).permit(
         :title, :description, :duration, :link, :source,
-        :producer, :provider, :transcript_txt, :tag_list, :hidden,
-        :playlist_id
+        :producer, :provider, :transcript_txt, :transcript_srt,
+        :tag_list, :hidden, :playlist_id
       )
     end
   end

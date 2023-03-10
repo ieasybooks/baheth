@@ -29,6 +29,9 @@ gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 # The search engine used in the application.
 gem 'meilisearch-rails', '~> 0.8.1'
 
+# Ruby gem for parsing .srt (subtitle) files.
+gem 'srt', '~> 0.1.5'
+
 # Rails engine for cache-friendly, client-side local time.
 gem 'local_time', '~> 2.1'
 
