@@ -48,12 +48,12 @@ class Medium < ApplicationRecord
         content: line.text.join(' '),
         start_time: line.start_time,
         end_time: line.end_time,
-        medium_id: id,
-        user_id: user.id
+        medium_id: id, user_id: user.id
       }
     end
 
     Cue.insert_all new_cues # rubocop:disable Rails/SkipsModelValidations
+    Cue.reindex!
   end
 
   def delete_cues
