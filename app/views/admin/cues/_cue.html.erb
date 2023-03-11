@@ -9,8 +9,9 @@
             </div>
 
             <div class="text-nowrap">
-              <%= link_to '<i class="bi bi-arrow-right"></i>'.html_safe, admin_cue_path(cue.previous_cue), class: 'btn btn-sm btn-outline-primary' %>
-              <%= link_to '<i class="bi bi-arrow-left"></i>'.html_safe, admin_cue_path(cue.next_cue), class: 'btn btn-sm btn-outline-primary' %>
+              <%= open_medium_button(cue) %>
+              <%= previous_cue_button(cue) %>
+              <%= next_cue_button(cue) %>
               <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_admin_cue_path(cue), class: 'btn btn-sm btn-outline-success' %>
               <%= link_to '<i class="bi bi-trash-fill"></i>'.html_safe,
                 admin_cue_path(cue),
