@@ -17,8 +17,8 @@ class Medium < ApplicationRecord
   belongs_to :user
   belongs_to :playlist
   has_many :speakers, through: :playlist
-  has_many :cues, dependent: :destroy
-  has_one_attached :transcript_txt
+  has_many :cues, dependent: :delete_all
+  has_one_attached :transcript_txt, dependent: :destroy
 
   validates :title, :duration, :link, :source, :producer, :provider, :transcript_txt, presence: true
   validates :transcript_srt, presence: true, on: :create
