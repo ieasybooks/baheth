@@ -16,17 +16,17 @@ class Playlist < ApplicationRecord
 
   acts_as_taggable
 
-  def one_speaker_at_least?
-    return unless speakers.empty?
-
-    errors.add(:speakers, 'need one speaker at least')
-  end
-
   meilisearch do
     attribute :title, :description
 
     attribute :tags do
       tag_list.join('، ')
     end
+  end
+
+  def one_speaker_at_least?
+    return unless speakers.empty?
+
+    errors.add(:speakers, 'need one speaker at least')
   end
 end

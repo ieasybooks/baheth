@@ -15,11 +15,21 @@ class Cue < ApplicationRecord
   validates :start_time, numericality: { greater_than_or_equal: 0 }
   validates :end_time, numericality: { greater_than: :start_time }
 
+  meilisearch do
+    attribute :content
+  end
+
   def truncated_content(content_limit = 25)
     content.size > content_limit ? "#{content[0..content_limit]}..." : content
   end
 
-  meilisearch do
-    attribute :content
+  def previous_cue
+    medium.cues.select { |cue| cue.start_time < start_time }
+          .min_by { |cue| start_time - cue.start_time }
+  end
+
+  def next_cue
+    medium.cues.select { |cue| cue.start_time > start_time }
+          .min_by { |cue| cue.start_time - start_time }
   end
 end
