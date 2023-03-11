@@ -1,12 +1,11 @@
 module Admin
   module CuesHelper
     include Pagy::Frontend
-    include ::UrlUtilities
 
     def open_medium_button(cue)
       link_to(
         '<i class="bi bi-box-arrow-up-left"></i>'.html_safe,
-        add_param(cue.medium.link, 't', cue.start_time.to_i),
+        cue.medium.link_with_start_time(cue.start_time.to_i),
         class: 'btn btn-sm btn-outline-primary',
         target: '_blank',
         rel: 'noopener'

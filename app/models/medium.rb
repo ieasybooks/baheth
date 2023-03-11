@@ -5,6 +5,7 @@ class Medium < ApplicationRecord
   PRODUCERS = %i[almufaragh].freeze
 
   include MeiliSearch::Rails
+  include ::UrlUtilities
 
   extend Pagy::Meilisearch
   ActiveRecord_Relation.include Pagy::Meilisearch
@@ -40,6 +41,10 @@ class Medium < ApplicationRecord
     attribute :tags do
       tag_list.join('، ')
     end
+  end
+
+  def link_with_start_time(start_time)
+    add_param(link, 't', start_time) if source == 'youtube'
   end
 
   def insert_cues
