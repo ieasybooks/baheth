@@ -3,7 +3,10 @@
 first_medium:
   title: الدرس الأول
   description: الدرس الأول
-  duration: "5775"
+  duration: '5775'
   link: https://youtu.be/JiPwakcRO9M
+  source: youtube
+  producer: almufaragh
+  provider: المزوّد الأول
   playlist: first_playlist
   user: first_user

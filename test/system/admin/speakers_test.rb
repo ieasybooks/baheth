@@ -12,36 +12,38 @@ module Admin
 
     test 'visiting the index' do
       visit admin_speakers_url
-      assert_selector 'h1', text: 'Speakers'
+      assert_selector 'span', text: I18n.t('admin.templates.index.speakers.title')
     end
 
     test 'should create speaker' do
       visit admin_speakers_url
-      click_on 'New speaker'
+      find(:css, 'i.bi.bi-plus-circle-fill').click
 
-      fill_in 'Description', with: @speaker.description
-      fill_in 'Name', with: @speaker.name
-      click_on 'Create Speaker'
+      fill_in I18n.t('attributes.description'), with: @speaker.description
+      fill_in I18n.t('attributes.name'), with: @speaker.name
+      click_on I18n.t('helpers.submit.speaker.create')
 
       assert_text 'Speaker was successfully created'
-      click_on 'Back'
+      click_on I18n.t('admin.templates.admin_navbar.manage_speakers')
     end
 
     test 'should update speaker' do
       visit admin_speaker_url(@speaker)
-      click_on 'Edit this speaker', match: :first
+      find(:css, 'i.bi.bi-pencil-fill').click
 
-      fill_in 'Description', with: @speaker.description
-      fill_in 'Name', with: @speaker.name
-      click_on 'Update Speaker'
+      fill_in I18n.t('attributes.description'), with: @speaker.description
+      fill_in I18n.t('attributes.name'), with: @speaker.name
+      click_on I18n.t('helpers.submit.speaker.update')
 
       assert_text 'Speaker was successfully updated'
-      click_on 'Back'
+      click_on I18n.t('admin.templates.admin_navbar.manage_speakers')
     end
 
     test 'should destroy speaker' do
       visit admin_speaker_url(@speaker)
-      click_on 'Destroy this speaker', match: :first
+      accept_confirm do
+        find(:css, 'i.bi.bi-trash-fill').click
+      end
 
       assert_text 'Speaker was successfully destroyed'
     end

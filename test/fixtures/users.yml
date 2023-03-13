@@ -3,8 +3,8 @@
 <% require 'bcrypt' %>
 
 first_user:
-  first_name: 'علي'
-  last_name: 'فاضل'
-  email: 'ali.fadel@ieasybooks.com'
+  first_name: علي
+  last_name: فاضل
+  email: ali.fadel@ieasybooks.com
   encrypted_password: <%= BCrypt::Password.create('ali.fadel', cost: 5) %>
   admin: true
