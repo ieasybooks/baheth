@@ -59,7 +59,12 @@ namespace :db do # rubocop:disable Metrics/BlockLength
           source: 'youtube',
           producer: 'almufaragh',
           provider: Faker::Name.name,
-          hidden: false, playlist:, user:
+          hidden: false,
+          transcript_srt: ActionDispatch::Http::UploadedFile.new(
+            tempfile: Rails.root.join('test/fixtures/files/transcript.srt'),
+            filename: 'transcript.srt'
+          ),
+          playlist:, user:
         )
 
         medium.tag_list = Faker::Lorem.words
