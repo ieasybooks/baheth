@@ -3,6 +3,7 @@
   <td><%= link_to record.truncated_content, admin_cue_path(record) %></td>
   <td><%= seconds_to_time(record.start_time) %></td>
   <td><%= seconds_to_time(record.end_time) %></td>
+  <td><%= (record.hidden ? '<i class="bi bi-x-circle-fill text-danger fs-4"></i>' : '<i class="bi bi-check-circle-fill text-success fs-4"></i>').html_safe %></td>
   <td><%= link_to record.medium.title, admin_medium_path(record.medium) %></td>
   <td><%= link_to record.playlist.title, admin_playlist_path(record.playlist) %></td>
   <td><%= speakers_to_links(record.speakers).join(t('joiner')).html_safe %></td>

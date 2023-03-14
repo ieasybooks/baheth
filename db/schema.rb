@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_094326) do
     t.text "content"
     t.interval "start_time"
     t.interval "end_time"
+    t.boolean "hidden", default: false, null: false
     t.bigint "medium_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

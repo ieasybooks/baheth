@@ -87,6 +87,7 @@ namespace :db do # rubocop:disable Metrics/BlockLength
           content: Faker::Lorem.paragraphs.join(' '),
           start_time: Faker::Number.between(from: 100, to: 1000),
           end_time: Faker::Number.between(from: 1001, to: 5000),
+          hidden: false,
           medium:,
           user:
         )

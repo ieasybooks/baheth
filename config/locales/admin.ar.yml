@@ -127,6 +127,7 @@ ar:
             - content
             - start_time
             - end_time
+            - appears
             - medium
             - playlist
             - speakers

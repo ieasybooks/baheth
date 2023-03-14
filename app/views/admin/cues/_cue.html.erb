@@ -32,19 +32,22 @@
               <p class="mb-0 text-muted"><%= t('attributes.start_time') %></p>
               <p><%= seconds_to_time(cue.start_time) %></p>
 
-              <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
-              <p><%= cue.user.name %></p>
+              <p class="mb-0 text-muted"><%= t('attributes.appears') %></p>
+              <p><%= (cue.hidden ? '<i class="bi bi-x-circle-fill text-danger"></i>' : '<i class="bi bi-check-circle-fill text-success"></i>').html_safe %></p>
 
-              <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
-              <p><%= local_time cue.updated_at, :long %></p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
+              <p><%= local_time cue.created_at, :long %></p>
             </div>
 
             <div class="col">
               <p class="mb-0 text-muted"><%= t('attributes.end_time') %></p>
               <p><%= seconds_to_time(cue.end_time) %></p>
 
-              <p class="mb-0 text-muted"><%= t('attributes.created_at') %></p>
-              <p><%= local_time cue.created_at, :long %></p>
+              <p class="mb-0 text-muted"><%= t('attributes.created_by') %></p>
+              <p><%= cue.user.name %></p>
+
+              <p class="mb-0 text-muted"><%= t('attributes.updated_at') %></p>
+              <p><%= local_time cue.updated_at, :long %></p>
             </div>
           </div>
 
